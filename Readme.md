@@ -8,11 +8,17 @@
 
 [한 눈에 읽는 루비 온 레일즈](https://edu.goorm.io/lecture/16335/%ED%95%9C-%EB%88%88%EC%97%90-%EC%9D%BD%EB%8A%94-%EB%A3%A8%EB%B9%84-%EC%98%A8-%EB%A0%88%EC%9D%BC%EC%A6%88)
 
+[생활코딩 - Router](https://opentutorials.org/course/2835/19602)
+
 ### Sample
 
 [heroku](https://frozen-spire-16874.herokuapp.com/)
 
 프로젝트 하나 Clone 시작
+
+
+
+
 
 
 
@@ -450,6 +456,63 @@ git push heroku master
 # db 설정 'We're sorry, but something went wrong.'
 heroku run rake db:migrate
 ```
+
+### Route
+
+**resources**
+
+![image-20200809224646026](https://tva1.sinaimg.cn/large/007S8ZIlgy1ghkwagoxnuj31we0p8k6m.jpg)
+
+* prefix를 앞에 추가할때
+
+  ```ruby
+  scope 'admin', as:'admin' do
+    resources:photos, :acoounts
+  end
+  ```
+
+* 이중 resources 구조를 만들때
+
+```ruby
+resources:magazines do
+  resources:ads, as:'periodical_ads'
+end
+```
+
+* 파라미터를 :id에서 바꿀때
+
+  ```ruby
+  resources:videos, param::identifier
+  ```
+
+  
+
+**route & path**
+
+prefix | Verb | URI Pattern
+
+<img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ghkwlfhu6oj30c908umxu.jpg" alt="image-20200809225719225" style="zoom: 50%;" />
+
+```ruby
+#update
+<%= link_to 'Edit', edit_post_path(post) %>
+<%= link_to 'Edit', '/post/:id/edit' %>
+
+#Delete
+<%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+```
+
+
+
+### REST
+
+* 클라이언트/서버 구조
+* 무상태(Stateless)
+* 캐시 처리 가능
+* 계층화
+* Code on demand
+* 인터페이스 일관성
 
 
 
