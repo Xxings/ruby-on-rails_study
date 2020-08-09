@@ -4,3 +4,6 @@
 [submodule "ruby-on-rail-2"]
 	path = ruby-on-rail-2
 	url = https://github.com/Xxings/ruby-on-rails-2.git
+[submodule "ruby-on-rails-3"]
+	path = ruby-on-rails-3
+	url = https://github.com/Xxings/ruby-on-rails-3
